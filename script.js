@@ -30,15 +30,15 @@ let shopItemsData = [{
 }]
 
 let basket = JSON.parse(localStorage.getItem("data")) || []
-console.log(basket)
+// console.log(basket)
 /**
  * ! ES6 error function
  */
 let generateShop = () =>{
     return (shop.innerHTML = shopItemsData.map((x) => {
         let { id, name, price, desc, img} = x
-        let search = basket.find((x) => x.id === id) || []
-        console.log(search)
+        let search = basket.find((x) => x.id == id) || []
+        // console.log(search)
         /**
          * ! destructuring
          **/
@@ -90,15 +90,17 @@ let decrement = (id) => {
     let selectedItem = id
     let search = basket.find((x)=>  x.id === selectedItem)
 
-    if(search.item === 0) return
+    if(search === undefined) return
+    else if(search.item === 0) return
     else {
         search.item -= 1
     }
-   
-    localStorage.setItem("data", JSON.stringify(basket))
-    // console.log(basket)
+    
     update(selectedItem)
+    basket = basket.filter((x)=> x.item !== 0)
+    // console.log(basket)
 
+    localStorage.setItem("data", JSON.stringify(basket))
 }
 
 let update = (id) => {
@@ -113,3 +115,5 @@ let calculation =()=> {
     cartIcon.innerHTML = basket.map((x)=> x.item).reduce((x, y) => x + y, 0)
     // console.log(basket.map((x)=> x.item).reduce((x, y) => x + y, 0))
 }
+
+calculation()
