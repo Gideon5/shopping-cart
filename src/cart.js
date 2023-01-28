@@ -11,4 +11,18 @@ let calculation =()=> {
 
 calculation()
 
-let generateCardItems = () => {}
+let generateCardItems = () => {
+    if(basket.length !== 0){
+
+    }
+    else{
+        shoppingCart.innerHTML = ``
+        label.innerHTML = `
+        <h2>Cart is empty</h2>
+        <a href="index.html">
+            <button class="homeBtn">Bck to Home</button>
+        </a>
+        `
+    }
+}
+generateCardItems()
