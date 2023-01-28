@@ -77,7 +77,8 @@ let increment = (id) => {
     }
    
 
-    console.log(basket)
+    // console.log(basket)
+    update(selectedItem)
 
 }
 
@@ -91,10 +92,18 @@ let decrement = (id) => {
     }
    
 
-    console.log(basket)
+    // console.log(basket)
+    update(selectedItem)
 
 }
 
-let update = () => {
-    
+let update = (id) => {
+    let search = basket.find((x)=> x.id === id)
+    console.log(search.item)
+    document.getElementById(id).innerHTML = search.item
+    calculation()
+}
+
+let calculation =()=> {
+    console.log("caluction func is running")
 }
