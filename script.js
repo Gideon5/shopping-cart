@@ -29,6 +29,8 @@ let shopItemsData = [{
     img: "images/img-4.jpg"
 }]
 
+let basket = []
+
 /**
  * ! ES6 error function
  */
@@ -61,11 +63,35 @@ let generateShop = () =>{
 generateShop()
 
 let increment = (id) => {
-    console.log(id)
+    let selectedItem = id
+    let search = basket.find((x)=>  x.id === selectedItem)
+
+    if(search === undefined){
+        basket.push({
+            id: selectedItem,
+            item: 1,
+        })
+    } 
+    else {
+        search.item += 1
+    }
+   
+
+    console.log(basket)
+
 }
 
 let decrement = (id) => {
-    console.log(id)
+    let selectedItem = id
+    let search = basket.find((x)=>  x.id === selectedItem)
+
+    if(search.item === 0) return
+    else {
+        search.item -= 1
+    }
+   
+
+    console.log(basket)
 
 }
 
