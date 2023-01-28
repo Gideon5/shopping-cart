@@ -52,7 +52,7 @@ let increment = (id) => {
     else {
         search.item += 1
     }
-    
+                
     update(selectedItem)
     localStorage.setItem("data", JSON.stringify(basket))
     // console.log(basket)

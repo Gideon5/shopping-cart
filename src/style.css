@@ -66,6 +66,7 @@ a {
     grid-template-columns: repeat(4, 223px);
     gap: 30px;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 1000px) {
